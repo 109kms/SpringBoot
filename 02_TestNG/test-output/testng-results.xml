@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="7" passed="2" failed="5" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-09-15T17:39:20 KST" name="Default suite" finished-at="2025-09-15T17:39:22 KST" duration-ms="2778">
+    <groups>
+    </groups>
+    <test started-at="2025-09-15T17:39:20 KST" name="Default test" finished-at="2025-09-15T17:39:22 KST" duration-ms="2778">
+      <class name="org.shark.boot02.ApplicationTests">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:20 KST" name="springTestContextBeforeTestClass" finished-at="2025-09-15T17:39:20 KST" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:20 KST" name="springTestContextPrepareTestInstance" finished-at="2025-09-15T17:39:22 KST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="1953" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="566" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.contextLoads()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="contextLoads()[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="contextLoads" description="컨텍스트 로드 테스트, nowTest()를 테스트하면 contextLoads()는 함께 테스트됩니다." finished-at="2025-09-15T17:39:22 KST" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- contextLoads -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="8" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.contextLoads()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.nowTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="nowTest()[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="nowTest" description="현재 시간 가져오기 테스트" finished-at="2025-09-15T17:39:22 KST" depends-on-methods="org.shark.boot02.ApplicationTests.contextLoads" duration-ms="40" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- nowTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.nowTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardInsertTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="boardInsertTest()[pri:1, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="boardInsertTest" description="신규 게시글 등록 테스트" finished-at="2025-09-15T17:39:22 KST" duration-ms="101" status="FAIL">
+          <exception class="org.springframework.jdbc.BadSqlGrammarException">
+            <message>
+              <![CDATA[
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.insertBoard-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO tbl_board VALUES(null, ?, ?, NOW())
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.insertBoard-Inline
+### The error occurred while setting parameters
+### SQL: INSERT INTO tbl_board VALUES(null, ?, ?, NOW())
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []
+at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:95)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:347)
+at jdk.proxy2/jdk.proxy2.$Proxy84.insert(Unknown Source)
+at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:224)
+at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+at jdk.proxy2/jdk.proxy2.$Proxy91.insertBoard(Unknown Source)
+at org.shark.boot02.ApplicationTests.boardInsertTest(ApplicationTests.java:61)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:260)
+at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:154)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:274)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:678)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+... 38 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.springframework.jdbc.BadSqlGrammarException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- boardInsertTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardInsertTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardDetailTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="boardDetailTest()[pri:2, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="boardDetailTest" description="게시판 상세 테스트" finished-at="2025-09-15T17:39:22 KST" duration-ms="3" status="FAIL">
+          <exception class="org.springframework.jdbc.BadSqlGrammarException">
+            <message>
+              <![CDATA[
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.selectBoardById-Inline
+### The error occurred while setting parameters
+### SQL: SELECT bid, title, content, created_at FROM tbl_board WHERE bid = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.selectBoardById-Inline
+### The error occurred while setting parameters
+### SQL: SELECT bid, title, content, created_at FROM tbl_board WHERE bid = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []
+at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:95)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:347)
+at jdk.proxy2/jdk.proxy2.$Proxy84.selectOne(Unknown Source)
+at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:154)
+at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:87)
+at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+at jdk.proxy2/jdk.proxy2.$Proxy91.selectBoardById(Unknown Source)
+at org.shark.boot02.ApplicationTests.boardDetailTest(ApplicationTests.java:66)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:260)
+at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:154)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:274)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:678)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:75)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+... 38 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.springframework.jdbc.BadSqlGrammarException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- boardDetailTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardDetailTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardListTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="boardListTest()[pri:3, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="boardListTest" description="게시판 목록 가져오기 테스트" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="FAIL">
+          <exception class="org.springframework.jdbc.BadSqlGrammarException">
+            <message>
+              <![CDATA[
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT bid, title, content, created_at FROM tbl_board ORDER BY bid DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT bid, title, content, created_at FROM tbl_board ORDER BY bid DESC
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []
+at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:95)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:347)
+at jdk.proxy2/jdk.proxy2.$Proxy84.selectList(Unknown Source)
+at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:194)
+at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+at jdk.proxy2/jdk.proxy2.$Proxy91.selectBoardList(Unknown Source)
+at org.shark.boot02.ApplicationTests.boardListTest(ApplicationTests.java:71)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:260)
+at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:154)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:274)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:678)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+... 39 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.springframework.jdbc.BadSqlGrammarException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- boardListTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardListTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardUpdateTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="boardUpdateTest()[pri:4, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="boardUpdateTest" description="게시글 수정 테스트" finished-at="2025-09-15T17:39:22 KST" duration-ms="3" status="FAIL">
+          <exception class="org.springframework.jdbc.BadSqlGrammarException">
+            <message>
+              <![CDATA[
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.updateBoard-Inline
+### The error occurred while setting parameters
+### SQL: UPDATE tbl_board SET title = ?, content = ? WHERE bid = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.updateBoard-Inline
+### The error occurred while setting parameters
+### SQL: UPDATE tbl_board SET title = ?, content = ? WHERE bid = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []
+at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:95)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:347)
+at jdk.proxy2/jdk.proxy2.$Proxy84.update(Unknown Source)
+at org.mybatis.spring.SqlSessionTemplate.update(SqlSessionTemplate.java:234)
+at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:67)
+at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+at jdk.proxy2/jdk.proxy2.$Proxy91.updateBoard(Unknown Source)
+at org.shark.boot02.ApplicationTests.boardUpdateTest(ApplicationTests.java:78)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:260)
+at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:154)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:274)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:678)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+... 38 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.springframework.jdbc.BadSqlGrammarException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- boardUpdateTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardUpdateTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextBeforeTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardDeleteTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="boardDeleteTest()[pri:5, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="boardDeleteTest" description="게시글 삭제 테스트" finished-at="2025-09-15T17:39:22 KST" duration-ms="2" status="FAIL">
+          <exception class="org.springframework.jdbc.BadSqlGrammarException">
+            <message>
+              <![CDATA[
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.deleteBoard-Inline
+### The error occurred while setting parameters
+### SQL: DELETE FROM tbl_board WHERE bid = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.springframework.jdbc.BadSqlGrammarException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+### The error may exist in org/shark/boot02/mapper/BoardMapper.java (best guess)
+### The error may involve org.shark.boot02.mapper.BoardMapper.deleteBoard-Inline
+### The error occurred while setting parameters
+### SQL: DELETE FROM tbl_board WHERE bid = ?
+### Cause: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+; bad SQL grammar []
+at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:95)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:347)
+at jdk.proxy2/jdk.proxy2.$Proxy84.delete(Unknown Source)
+at org.mybatis.spring.SqlSessionTemplate.delete(SqlSessionTemplate.java:244)
+at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:72)
+at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+at jdk.proxy2/jdk.proxy2.$Proxy91.deleteBoard(Unknown Source)
+at org.shark.boot02.ApplicationTests.boardDeleteTest(ApplicationTests.java:86)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:260)
+at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:154)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:274)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:678)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_boot02.tbl_board' doesn't exist
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
+at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
+at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.delete(DefaultSqlSession.java:212)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:333)
+... 38 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.springframework.jdbc.BadSqlGrammarException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- boardDeleteTest -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestMethod" finished-at="2025-09-15T17:39:22 KST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.shark.boot02.ApplicationTests.boardDeleteTest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:org.shark.boot02.ApplicationTests@68b6f0d6]" started-at="2025-09-15T17:39:22 KST" name="springTestContextAfterTestClass" finished-at="2025-09-15T17:39:22 KST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- org.shark.boot02.ApplicationTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
