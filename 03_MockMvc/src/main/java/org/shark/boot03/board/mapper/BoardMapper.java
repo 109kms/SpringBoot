@@ -2,7 +2,7 @@ package org.shark.boot03.board.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
+// import org.apache.ibatis.annotations.Mapper;
 import org.shark.boot03.board.dto.BoardDTO;
 
 /*
@@ -12,7 +12,7 @@ import org.shark.boot03.board.dto.BoardDTO;
  * 2. XML의 SQL id는 반드시 Mapper Interface의 메소드명과 일치해야 합니다.
  */
 
-@Mapper
+// @Mapper
 public interface BoardMapper {
   List<BoardDTO> selectBoardList();
   BoardDTO selectBoardById(Long bid);
