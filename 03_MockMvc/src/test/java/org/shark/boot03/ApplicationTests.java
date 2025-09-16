@@ -1,6 +1,8 @@
 package org.shark.boot03;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,12 +12,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /*
  * MockMvc
@@ -48,12 +46,23 @@ class ApplicationTests {
 	          .contentType(MediaType.APPLICATION_FORM_URLENCODED)
 	          .flashAttr("boardDTO", board)  // 컨트롤러에서 이름을 명시하지 않으면, 클래스명을 camelCase로 변환한 이름을 사용합니다.
 	                                         // @ModelAttribute BoardDTO board 또는 BoardDTO board
-	          // .param("title", "테슽흐 죄목")
-	          // .param("content", "테슽흐 네용")
+	          // .param("title", "테슽흐 죄목")    -> .flashAttr() 대신 사용 가능
+	          // .param("content", "테슽흐 네용")  -> .flashAttr() 대신 사용 가능
 	          ).andDo(MockMvcResultHandlers.print())
 	           .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
 	           .andExpect(MockMvcResultMatchers.redirectedUrl("/board/list"))
 	           .andExpect(MockMvcResultMatchers.flash().attribute("msg", "등록 성공"));
+	}
+	
+	@Test
+	@DisplayName("게시글 상세 보기 테스트")
+	public void boardDetailTest() throws Exception{
+	  
+	  mockMvc.perform(get("/board/detail")
+	          .param("bid", "1"))
+	          .andDo(MockMvcResultHandlers.print())
+	          .andExpect(MockMvcResultMatchers.status().isOk());
+	  
 	}
 
 }

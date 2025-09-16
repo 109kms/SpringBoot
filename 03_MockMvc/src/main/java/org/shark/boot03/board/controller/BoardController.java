@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class BoardController {
   }
   
   @GetMapping("/detail")
-  public String detail(Long bid, Model model) {
+  public String detail(@RequestParam(value = "bid") Long bid, Model model) {
     model.addAttribute("board", boardService.getBoardById(bid));
     return "board/detail";
   }

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+  <!--/* 주석은 이렇게 */-->
+  
+  <!--/* Link URL Expression : @{} */-->
+  
+  <img th:src="@{/static/images/loading.gif}" width="100px" height="100px" alt="이미지"><br><br>
+  
+  <a th:href="@{/value/expr}">Value Expression</a><br>
+  <a th:href="@{/utility}">Utility</a><br>
+  <a th:href="@{/message/expr}">Message Expression</a>
+
+</body>
+</html>
