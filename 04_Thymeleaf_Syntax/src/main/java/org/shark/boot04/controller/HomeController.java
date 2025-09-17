@@ -1,7 +1,9 @@
 package org.shark.boot04.controller;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.shark.boot04.dto.BoardDTO;
@@ -42,6 +44,32 @@ public class HomeController {
   @GetMapping("/message/expr")
   public String message() {
     return "message";
+  }
+  
+  @GetMapping("/javascript")
+  public String javascript(Model model) {
+    model.addAttribute("msg", Math.random() < 0.5 ? "성공" : "실패");
+    if (Math.random() > 0.5) {
+      model.addAttribute("result", "실행 결과 값");
+    }
+    return "javascript";
+  }
+  
+  @GetMapping("/frag/expr")
+  public String frag() {
+    return "frag";
+  }
+  
+  @GetMapping("/control")
+  public String control(Model model) {
+    List<BoardDTO> boardList = new ArrayList<>();
+    if (Math.random() < 0.5) {
+      boardList.add(new BoardDTO(1L, "오늘의넌센슈", "인천아빠다의반대말은?", LocalDateTime.now()));
+      boardList.add(new BoardDTO(2L, "오늘의상식", "인간은70%이상물로이루어져있습니다.", LocalDateTime.now()));
+      boardList.add(new BoardDTO(3L, "오늘의퀴즈", "올해는광복몇주기일까요?", LocalDateTime.now()));
+    }
+    model.addAttribute("boardList", boardList);
+    return "control";
   }
   
 }
