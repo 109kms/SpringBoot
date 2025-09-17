@@ -1,4 +1,4 @@
-USE db_boot03;
+USE db_boot05;
 
 DROP TABLE IF EXISTS tbl_board;
 CREATE TABLE IF NOT EXISTS tbl_board (
