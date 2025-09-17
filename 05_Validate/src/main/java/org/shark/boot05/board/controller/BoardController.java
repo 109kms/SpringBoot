@@ -1,27 +1,53 @@
 package org.shark.boot05.board.controller;
 
+import java.util.Map;
+
 import org.shark.boot05.board.dto.BoardDTO;
 import org.shark.boot05.board.service.BoardService;
+import org.shark.boot05.common.dto.PageDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.RequiredArgsConstructor;
 
-@RequestMapping("/board")
+/*
+ * 홈화면   GET   /
+ * 목록     GET   /board/list?page=1&size=20&sort=DESC
+ * 등록폼   GET   /board/write
+ * 등록     POST  /board/create
+ * 상세     GET   /board/detail?bid=1
+ * 수정폼   GET   /board/edit?bid=1
+ * 수정     POST  /board/update
+ * 삭제     POST  /board/delete
+ */
+
 @RequiredArgsConstructor
 @Controller
 public class BoardController {
 
   private final BoardService boardService;
   
-  @GetMapping("/list")
-  public String list(Model model) {
-    model.addAttribute("boardList", boardService.getBoardList());
+  @GetMapping("/")
+  public String home() {
+    return "home";  //----- SpringResourceTemplateResolver에 의해서 prefix, suffix가
+                    //----- prefix="/templates"
+                    //----- suffix=".html"
+  }
+  
+  @GetMapping("/board/list")
+  public String list(Model model
+                   , PageDTO dto
+                   , @RequestParam(value = "sort", defaultValue = "DESC") String sort) {
+    if (sort.isEmpty() || (!sort.equalsIgnoreCase("asc") && !sort.equalsIgnoreCase("desc"))) {
+      sort = "DESC";
+    }
+    Map<String, Object> result = boardService.getBoardList(dto, sort);
+    model.addAttribute("boardList", result.get("boardList"));
+    model.addAttribute("pageDTO", result.get("pageDTO"));
     return "board/list";
   }
   
