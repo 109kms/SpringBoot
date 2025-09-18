@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--/* <head> 태그를 headfrag 조각을 대체하기 */-->
+<head th:replace="~{home::headfrag('게시글작성')}"></head>
+<body>
+
+  <form th:action="@{/board/create}" method="post">
+    <label for="title">제목</label>
+    <input type="text" name="title" id="title" value="${board.title}">
+    <span>제목예외메시지예정</span>
+    <br>
+    <label for="content">내용</label>
+    <br>
+    <textarea rows="5" cols="30" name="content" id="content" th:text="${board.content}"></textarea>
+    <br>
+    <button type="submit">등록</button>
+  </form>
+  
+  <div>등록 실패 시 예외 메시지 예정</div>
+  
+
+</body>
+</html>
