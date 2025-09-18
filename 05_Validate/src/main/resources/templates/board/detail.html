@@ -11,6 +11,10 @@
   
   <div>                 
     <button type="button" onclick="onEdit()">편집</button>
+    <form th:action="@{/board/delete}" method="post">
+      <input type="hidden" name="bid" th:value="${board.bid}">
+      <button>삭제</button>
+    </form>
   </div>
   
   <script th:inline="javascript">

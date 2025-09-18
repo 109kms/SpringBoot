@@ -9,13 +9,16 @@ import org.shark.boot05.common.dto.PageDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 /*
@@ -34,33 +37,33 @@ import lombok.RequiredArgsConstructor;
 public class BoardController {
 
   private final BoardService boardService;
-  
+
   @ExceptionHandler(IllegalArgumentException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String handleIllegalArgumentException(IllegalArgumentException e, Model model) {
     model.addAttribute("error", "잘못된 요청입니다. (" + e.getMessage() + ")");
     return "error/400";
   }
-  
+
   @ExceptionHandler(NoSuchElementException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)
   public String handleNoSuchElementException(NoSuchElementException e, Model model) {
     model.addAttribute("error", "요청하신 자원을 찾을 수 없습니다. (" + e.getMessage() + ")");
     return "error/404";
   }
-  
-  
+
+
   @GetMapping("/")
   public String home() {
     return "home";  //----- SpringResourceTemplateResolver에 의해서 prefix, suffix가
-                    //----- prefix="/templates"
-                    //----- suffix=".html"
+    //----- prefix="/templates"
+    //----- suffix=".html"
   }
-  
+
   @GetMapping("/board/list")
   public String list(Model model
-                   , PageDTO dto
-                   , @RequestParam(value = "sort", defaultValue = "DESC") String sort) {
+      , PageDTO dto
+      , @RequestParam(value = "sort", defaultValue = "DESC") String sort) {
     if (sort.isEmpty() || (!sort.equalsIgnoreCase("asc") && !sort.equalsIgnoreCase("desc"))) {
       sort = "DESC";
     }
@@ -69,7 +72,7 @@ public class BoardController {
     model.addAttribute("pageDTO", result.get("pageDTO"));
     return "board/list";
   }
-  
+
   @GetMapping("/board/detail")
   public String detail(@RequestParam(value = "bid", required = false) Long bid, Model model) {
     if (bid == null) {
@@ -85,28 +88,79 @@ public class BoardController {
     model.addAttribute("board", boardService.getBoardById(bid));
     return "board/detail";
   }
-  
-  @PostMapping("/board/write")
-  public String write(BoardDTO board, RedirectAttributes redirectAttr) {
-    redirectAttr.addFlashAttribute("msg", boardService.createBoard(board) ? "등록 성공" : "등록 실패");
-    return "redirect:/board/list";
+
+  @GetMapping("/board/write")
+  public String writeForm(@ModelAttribute(value = "board") BoardDTO board) {
+    return "board/writeForm";
   }
-  
+
+  @PostMapping("/board/create")
+  public String write(@Valid BoardDTO board         //----- BoardDTO 유효성 검사를 합니다.
+      , BindingResult bindingResult   //----- @Valid 검증 결과를 저장합니다.
+      , Model model
+      , RedirectAttributes redirectAttr) {
+    //----- 유효성 검사를 통과하지 못한 경우 writeForm으로 되돌아 갑니다.
+    if (bindingResult.hasErrors()) {
+      model.addAttribute("errors", bindingResult);
+      model.addAttribute("board", board);
+      return "board/writeForm";
+    }
+    //----- 등록 시 오류가 발생하면 writeForm으로 리다이렉트합니다.
+    try {
+      boolean success = boardService.createBoard(board);
+      redirectAttr.addFlashAttribute("msg", success ? "등록 성공" : "등록 실패");
+      return "redirect:/board/list";
+    } catch (Exception e) {
+      redirectAttr.addFlashAttribute("insertError", "게시글 등록 중 오류가 발생했습니다.")
+      .addFlashAttribute("board", board);
+      return "redirect:/board/write";
+    }
+  }
+
+  @GetMapping("/board/edit")
+  public String edit(@RequestParam(value = "bid", required = false) Long bid, Model model) {
+    if (bid == null) {
+      throw new IllegalArgumentException("게시글 ID 정보를 확인할 수 없습니다.");
+    }
+    if (bid <= 0) {
+      throw new IllegalArgumentException("게시글 ID는 1 이상의 정수입니다.");
+    }
+    BoardDTO foundBoard = boardService.getBoardById(bid);
+    if (foundBoard == null) {
+      throw new NoSuchElementException("게시글 ID가 " + bid + "인 게시글이 존재하지 않습니다.");
+    }
+    model.addAttribute("board", boardService.getBoardById(bid));
+    return "board/editForm";
+  }
+
   @PostMapping("/board/update")
-  public String update(BoardDTO board, RedirectAttributes redirectAttr) {
-    if (boardService.updateBoard(board)) {
-      redirectAttr.addFlashAttribute("msg", "수정 성공")
+  public String update(@Valid BoardDTO board         //----- BoardDTO 유효성 검사를 합니다.
+      , BindingResult bindingResult   //----- @Valid 검증 결과를 저장합니다.
+      , Model model
+      , RedirectAttributes redirectAttr) {
+    //----- 유효성 검사를 통과하지 못한 경우 editForm으로 되돌아 갑니다.
+    if (bindingResult.hasErrors()) {
+      model.addAttribute("errors", bindingResult);
+      model.addAttribute("board", board);
+      return "board/editForm";
+    }
+    //----- 등록 시 오류가 발생하면 editForm으로 리다이렉트합니다.
+    try {
+      boolean success = boardService.updateBoard(board);
+      redirectAttr.addFlashAttribute("msg", success ? "수정 성공" : "수정 실패")
                   .addAttribute("bid", board.getBid());
       return "redirect:/board/detail";
+    } catch (Exception e) {
+      redirectAttr.addFlashAttribute("updateError", "게시글 수정 중 오류가 발생했습니다.")
+      .addFlashAttribute("board", board);
+      return "redirect:/board/edit";
     }
-    redirectAttr.addFlashAttribute("msg", "수정 실패");
-    return "redirect:/board/list";
   }
-  
+
   @PostMapping("/board/delete")
-  public String delete(Long bid, RedirectAttributes redirectAttr) {
+  public String delete(@RequestParam(value = "bid", required = false) Long bid, RedirectAttributes redirectAttr) {
     redirectAttr.addFlashAttribute("msg", boardService.deleteBoard(bid) ? "삭제 성공" : "삭제 실패");
     return "redirect:/board/list";
   }
-  
+
 }
