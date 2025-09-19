@@ -12,7 +12,7 @@
   <select id="selectUserList" resultType="UserDTO">
     SELECT uid, username, password, nickname, created_at
       FROM tbl_user
-     ORDER BY uid ${SORT}
+     ORDER BY uid ${sort}
      LIMIT #{offset}, #{size}
   </select>
   

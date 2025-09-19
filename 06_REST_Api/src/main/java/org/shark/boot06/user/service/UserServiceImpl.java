@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
   @Transactional(readOnly = true)
   @Override
   public List<UserDTO> getUserList(PageDTO dto, String sort) {
-    int totalItem = userMapper.selectUserCount();
+    Long totalItem = (long) userMapper.selectUserCount();
     dto.setTotalItem(totalItem);
     pageUtil.calculatePaging(dto);  // <<< PageDTO의 모든 필드 값이 채워지는 순간입니다.
     return userMapper.selectUserList(dto.getOffset(), dto.getSize(), sort);
@@ -52,7 +52,8 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserDTO updateUser(UserDTO user, Long uid) {
-    int updatedCount = userMapper.updateUser(user, uid);
+    user.setUid(uid);
+    int updatedCount = userMapper.updateUser(user);
     if (updatedCount == 0) {
       throw new UserNotFoundException("회원 ID (\" + uid + \") 조회 실패(수정)");
     }
