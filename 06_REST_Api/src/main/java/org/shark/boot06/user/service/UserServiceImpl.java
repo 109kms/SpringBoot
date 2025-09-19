@@ -47,18 +47,24 @@ public class UserServiceImpl implements UserService {
     userMapper.insertUser(user);
     user.setCreatedAt(userMapper.selectUserById(user.getUid()).getCreatedAt());
     log.info("{}", user);
-    return null;
+    return user;
   }
 
   @Override
   public UserDTO updateUser(UserDTO user, Long uid) {
-    // TODO Auto-generated method stub
-    return null;
+    int updatedCount = userMapper.updateUser(user, uid);
+    if (updatedCount == 0) {
+      throw new UserNotFoundException("회원 ID (\" + uid + \") 조회 실패(수정)");
+    }
+    return userMapper.selectUserById(uid);
   }
 
   @Override
   public void deleteUser(Long uid) {
-    // TODO Auto-generated method stub
+    int deletedCount = userMapper.deleteUser(uid);
+    if (deletedCount == 0) {
+      throw new UserNotFoundException("회원 ID (\" + uid + \") 조회 실패(삭제)");
+    }
 
   }
 

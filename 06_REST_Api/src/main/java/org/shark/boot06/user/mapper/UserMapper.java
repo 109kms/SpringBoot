@@ -12,6 +12,6 @@ public interface UserMapper {
   List<UserDTO> selectUserList(int offset, int size, String sort);
   UserDTO selectUserById(Long uid);
   int insertUser(UserDTO user);
-  int updateUser(UserDTO user);
+  int updateUser(UserDTO user, Long uid);
   int deleteUser(Long uid);
 }
