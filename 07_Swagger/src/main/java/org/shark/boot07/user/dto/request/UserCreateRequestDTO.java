@@ -37,7 +37,7 @@ public class UserCreateRequestDTO {
         , nullable = false
         , example = "id@example.com")
   // @Email(message = "이메일 형식이 올바르지 않습니다.")
-  @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+  @Pattern(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
          , message = "이메일 형식이 올바르지 않습니다.")
   @NotBlank(message = "아이디는 필수입니다.")
   @Size(max = 100, message = "아이디의 최대 글자 수는 100자입니다.")
