@@ -2,14 +2,18 @@ package org.shark.boot11;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.shark.boot11.common.util.JpaUtil;
+import org.shark.boot11.product.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -58,6 +62,14 @@ class ApplicationTests {
 	void contextLoads() {
 	  assertNotNull(em);
 	  log.info("contextLoads");
+	}
+	
+	@Test
+	@DisplayName("Product 엔티티 생성이 테이블의 데이터 입력으로 이어지는지 테스트")
+	void createProductTest() {
+	  Product product = new Product("P-001", "아이폰17", 100L, 120, LocalDate.of(2026, 12, 31));
+	  log.info("{}", product);
+	  // 테스트 결과 : 엔티티 생성이 INSERT
 	}
 
 }
