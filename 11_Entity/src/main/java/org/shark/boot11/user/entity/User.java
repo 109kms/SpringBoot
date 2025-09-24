@@ -64,4 +64,25 @@ public class User {
   @Column(name = "user_grade", length = 7)
   private UserGrade userGrade;
   
+  public User() {
+    // TODO Auto-generated constructor stub
+  }
+
+  public User(String username, String email, String phoneNumber, String address, String memo, UserGrade userGrade) {
+    super();
+    this.username = username;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.address = address;
+    this.memo = memo;
+    this.userGrade = userGrade;
+  }
+
+  @Override
+  public String toString() {
+    return "User [uid=" + uid + ", username=" + username + ", email=" + email + ", phoneNumber=" + phoneNumber
+        + ", address=" + address + ", memo=" + memo + ", createdAt=" + createdAt + ", userGrade=" + userGrade + "]";
+  }
+  
+  
 }

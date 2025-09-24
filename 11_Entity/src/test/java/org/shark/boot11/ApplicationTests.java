@@ -69,7 +69,7 @@ class ApplicationTests {
 	void createProductTest() {
 	  Product product = new Product("P-001", "아이폰17", 100L, 120, LocalDate.of(2026, 12, 31));
 	  log.info("{}", product);
-	  // 테스트 결과 : 엔티티 생성이 INSERT
+	  // 테스트 결과 : 엔티티 생성이 INSERT 쿼리로 이어지지 않습니다.
 	}
 
 }
