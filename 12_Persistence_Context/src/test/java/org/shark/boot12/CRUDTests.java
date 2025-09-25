@@ -1,8 +1,9 @@
 package org.shark.boot12;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,8 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.shark.boot12.common.util.JpaUtil;
+import org.shark.boot12.user.entity.AccessLog;
 import org.shark.boot12.user.entity.User;
 import org.shark.boot12.user.enums.Gender;
+import org.shark.boot12.user.enums.LogLevel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -65,7 +68,7 @@ class CRUDTests {
     tx.begin();
 
     try {
-      
+
       // 엔티티를 영속성 컨텍스트(Persistence Context)에 저장
       em.persist(user);
       log.info("after persist()");
@@ -79,14 +82,14 @@ class CRUDTests {
       // 트랜잭션 롤백
       tx.rollback();
       throw e;
-      
+
     }
 
-    Assertions.assertNotNull(user.getId());
-    Assertions.assertNotNull(user.getCreatedAt());
+    assertNotNull(user.getId());
+    assertNotNull(user.getCreatedAt());
 
   }
-  
+
   /*
    * 실행 순서 정리
    * 1. insert into
@@ -98,5 +101,79 @@ class CRUDTests {
    * User 엔티티는 AUTO INCREMENT 전략을 사용하므로, INSERT 쿼리를 실행해야만 ID를 알 수 있습니다.
    * 따라서, 영속성 컨텍스트에 엔티티를 저장하는 persist() 호출 시 곧바로 DB INSERT 쿼리가 실행됩니다.
    */
+
+  @Test
+  @DisplayName("AccessLog 엔티티 등록하기")
+  void createAccessLogTest() {
+
+    // AccessLog 엔티티 생성
+    AccessLog accessLog = AccessLog.createAccessLog("USER_LOGIN", "사용자 로그인 성공", LogLevel.INFO, "192.168.100.5", "Mozilla/5.0");
+
+    // 트랜잭션 시작
+    EntityTransaction tx = em.getTransaction();
+    tx.begin();
+
+    try {
+
+      // AccessLog 엔티티를 영속성 컨텍스트에 저장
+      em.persist(accessLog);
+      log.info("after persist");
+
+      // 트랜잭션 커밋
+      tx.commit();
+      log.info("after commit");
+
+    } catch (Exception e) {
+
+      // 트랜잭션 롤백
+      tx.rollback();
+      throw e;
+
+    }
+    assertNotNull(accessLog.getId());
+    assertNotNull(accessLog.getCreateAt());
+
+    /*
+     * 실행 순서 정리
+     * 1. after persist()
+     * 2. insert into
+     * 3. after commit()
+     * 
+     * 실행 순서 이유
+     * 영속성 컨텡스트에 엔티티를 저장하기 위해서는 반드시 엔티티에 ID가 필요합니다.
+     * AccessLog 엔티티는 access_log_seq 테이블로부터 ID를 받아서 사용합니다.
+     * 따라서, AccessLog 엔티티를 DB에 INSERT 하지 않아도 엔티티의 ID를 알 수 있으므로 persist() 메소드 호출 시 INSERT 쿼리가 동작하지 않습니다.
+     */
+
+  }
+
+  @Test
+  @DisplayName("User 엔티티 조회하기")
+  void findUserTest() {
+
+    // 엔티티를 조회할 땐 ID를 이용해서 조회합니다.
+    Long id = 1L;
+
+    //----- 엔티티 매니저를 이용한 엔티티 조회 원리
+    //   1. find() 호출 시 영속성 컨텍스트에서 엔티티를 조회합니다.
+    //   2. 없으면 DB에서 조회합니다
+    //   3. 그래도 없으면 null 반환합니다.
+    //   4. 조회한 엔티티는 영속성 컨텍스트에서 관리합니다. (find() 호출 결과 엔티티는 영속성 컨텍스트에 저장됩니다.)
+    User foundUser = em.find(User.class, id);
+
+    assertNotNull(foundUser);
+
+  }
+
+  @Test
+  @DisplayName("AccessLog 엔티티 조회하기")
+  void findAccessLogTest() {
+    Long id = 1L;
+    AccessLog accessLog = em.find(AccessLog.class, id);
+    assertNotNull(accessLog);
+  }
+  
+  
+
 
 }

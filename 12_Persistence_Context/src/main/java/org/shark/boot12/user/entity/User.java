@@ -27,26 +27,26 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "uid")
   private Long id;
-  
+
   @Column(nullable = false)
   private String username;
-  
+
   @Column(unique = true)
   private String email;
-  
+
   @Enumerated(EnumType.STRING)
   private Gender gender;
-  
+
   @CreationTimestamp
   @Column(name = "created_at")
   private LocalDateTime createdAt;
-  
+
   @Column(name = "withdraw_yn")
   private Boolean withdrawYn = false;
-  
+
   // 디폴트 생성자는 필수로 등록
   protected User() { }  // 외부에서 new User() 호출 방지을 막기 위해 protected 설정
-  
+
   // 정적 팩토리 메소드 형식으로 User 엔티티 생성
   public static User createUser(String username, String email, Gender gender) {
     User user = new User();
@@ -61,7 +61,7 @@ public class User {
     return "User [id=" + id + ", username=" + username + ", email=" + email + ", gender=" + gender + ", createdAt="
         + createdAt + ", withdrawYn=" + withdrawYn + "]";
   }
-  
-  
-  
+
+
+
 }
