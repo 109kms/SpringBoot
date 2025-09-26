@@ -28,7 +28,7 @@
       <!--   - create      : 애플리케이션 시작 시 테이블 생성 (기존 테이블은 삭제 후 재생성) -->
       <!--   - create-drop : 애플리케이션 종료 시 테이블 삭제가 추가된 create 모드 -->
       <!--   - validate    : 엔티티와 테이블 스키마의 일치 여부만 검증 -->
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.hbm2ddl.auto" value="create"/>
     
     </properties>
   
