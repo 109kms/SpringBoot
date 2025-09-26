@@ -1,6 +1,6 @@
 package org.shark.boot12;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -172,8 +172,98 @@ class CRUDTests {
     AccessLog accessLog = em.find(AccessLog.class, id);
     assertNotNull(accessLog);
   }
+
+  @Test
+  @DisplayName("User 엔티티 삭제하기")
+  void deleteUserTest() {
+    Long id = 1L;
+
+    EntityTransaction tx = em.getTransaction();
+    tx.begin();
+
+    try {
+
+      // 삭제할 엔티티를 조회해서 영속성 컨텍스트에 저장합니다.
+      User foundUser = em.find(User.class, id);
+
+      // 삭제 예정 상태로 엔티티를 변경합니다.
+      em.remove(foundUser);
+
+      // 실제로 삭제합니다.
+      tx.commit();
+
+    } catch (Exception e) {
+      tx.rollback();
+      throw e;
+    }
+
+    assertNull(em.find(User.class, id));
+
+  }
+
+  @Test
+  @DisplayName("AccessLog 엔티티 삭제")
+  void deleteAccessLogTest() {
+    Long id = 1L;
+    EntityTransaction tx = em.getTransaction();
+    tx.begin();
+
+    try {
+
+      AccessLog accessLog = em.find(AccessLog.class, id);  // DB에서 AccessLog 엔티티를 조회해 영속성 컨텍스트에 저장합니다.
+      em.remove(accessLog);  //------ AccessLog 엔티티를 영속성 컨텍스트에서 제거하고 삭제 상태로 바꿉니다.
+      em.persist(accessLog);  //----- 삭제 상태의 AccessLog 엔티티를 영속성 컨텍스트에 다시 저장합니다.
+
+      tx.commit();  //--------------- 영속성 컨텍스트에 여전히 AccessLog가 저장되어 있으므로 아무런 변화가 없습니다.
+
+    } catch (Exception e) {
+      tx.rollback();
+      throw e;
+    }
+    assertNull(em.find(AccessLog.class, id));
+
+  }
   
+  @Test
+  @DisplayName("User 엔티티를 수정하기")
+  void updateUserTest() {
+    
+    Long id = 1L;
+    String username = "고길동";
+    Gender gender = Gender.FEMALE;
+    
+    EntityTransaction tx = em.getTransaction();
+    tx.begin();
+    
+    try {
+      
+      // 수정할 엔티티를 조회해서 영속성 컨텍스트에 저장합니다.
+      User foundUser = em.find(User.class, id);
+      
+      // 영속성 컨텍스트에 저장된 엔티티를 수정합니다.
+      foundUser.setUsername(username);
+      foundUser.setGender(gender);
+      
+      // 트랜잭션 커밋
+      tx.commit();
+      
+    } catch (Exception e) {
+      tx.rollback();
+      throw e;
+    }
+    
+    assertEquals(username, em.find(User.class, id).getUsername());
+    
+  }
   
+  @Test
+  @DisplayName("AccessLog 엔티티 수정하기")
+  void updateAccessLogTest() {
+    
+    Long id = 1L;
+    
+  }
+
 
 
 }

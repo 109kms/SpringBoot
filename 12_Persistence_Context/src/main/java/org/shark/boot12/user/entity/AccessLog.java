@@ -3,6 +3,7 @@ package org.shark.boot12.user.entity;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicUpdate;
 import org.shark.boot12.user.enums.LogLevel;
 
 import jakarta.persistence.Column;
@@ -18,6 +19,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "access_log")
+@DynamicUpdate  // Dirty Checking 시 변경된 필드만 UPDATE 쿼리로 생성됩니다.
 
 @Getter
 @Setter
