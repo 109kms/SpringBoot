@@ -16,7 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @TestInstance(Lifecycle.PER_CLASS)
 @SpringBootTest
 class ApplicationTests {
@@ -65,6 +67,55 @@ class ApplicationTests {
       
 	    em.persist(member);
 	    em.flush();
+	    
+	    em.clear();
+	    
+	    Long id = member.getId();
+	    Member foundMember = em.find(Member.class, id);  // SELECT 쿼리 실행
+	                                                     // fetch=FetchType.EAGER : Member와 연관된 Locker 모두 조회 (join 발생)
+	                                                     // fetch=FetchType.LAZY  : Member만 조회
+	    log.info("Member's name: {}", member.getName());
+	    
+	    Locker foundLocker = foundMember.getLocker();    // fetch=FetchType.LAZY : Locker를 조회
+	    String location = foundLocker.getLocation();
+	    log.info("Locker's location: {}", location);
+	    
+	    tx.commit();
+	    
+    } catch (Exception e) {
+      tx.rollback();
+      throw e;
+    }
+	  
+	}
+	
+	@Test
+	@DisplayName("양방향 매핑 테스트")
+	void biDirectionMappingTest() {
+	  
+	  Member member = Member.createMember("제시카", "010-9999-9999");
+	  Locker locker = Locker.createLocker("B3");
+	  member.assignLocker(locker);
+	  
+	  EntityTransaction tx = em.getTransaction();
+	  tx.begin();
+	  
+	  try {
+      
+	    em.persist(member);
+	    
+	    em.flush();
+	    
+	    Long locker_id = locker.getId();
+	    
+	    em.clear();
+	    
+	    Locker foundLocker = em.find(Locker.class, locker_id);
+	    log.info("foundLocker: {}", foundLocker);
+	    
+	    // foundLocker를 이용하는 Member 조회?
+	    Member foundMember = foundLocker.getMember();
+	    log.info("{}", foundMember.getName());
 	    
 	    tx.commit();
 	    
