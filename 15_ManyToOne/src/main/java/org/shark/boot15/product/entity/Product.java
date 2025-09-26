@@ -31,13 +31,13 @@ public class Product {
   
   private Integer stock;
 
-  @ManyToOne(fetch = FetchType.LAZY)
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "category_id")
   private Category category;
   
   protected Product() {}
 
-  public static Product createdProduct(String productName, Double price, Integer stock) {
+  public static Product createdProduct(String productName, Double price, Integer stock, Category category) {
     Product product = new Product();
     product.productName = productName;
     product.price = price;
