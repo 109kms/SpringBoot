@@ -1,5 +1,6 @@
 package org.shark.boot16;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -207,6 +208,19 @@ class ApplicationTests {
     String jpql4 = "SELECT AVG(al.logId) FROM AccessLog al";
     Double avg = em.createQuery(jpql4, Double.class).getSingleResult();
     log.info("avg:{}", avg);
+    
+    String jpql5 = "SELECT MAX(al.logId) FROM AccessLog al";
+    Integer max = em.createQuery(jpql5, Integer.class).getSingleResult();
+    log.info("max:{}", max);
+  }
+  
+  @Test
+  @DisplayName("그룹화 테스트")
+  void groupByTest() {
+    Long groupCount = 2L;
+    String jpql = "SELECT al.logLevel, COUNT(al.logId) FROM AccessLog al GROUP BY al.logLevel HAVING COUNT(al.logId) >= :groupCount";
+    List<Object[]> accessLogs = em.createQuery(jpql, Object[].class).setParameter("groupCount", groupCount).getResultList();
+    accessLogs.stream().forEach(objArr -> log.info("{}", Arrays.toString(objArr)));
   }
   
 }
