@@ -9,7 +9,7 @@
     
       <!-- 데이터베이스 접속 정보 -->
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_boot15"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_jpa"/>
       <property name="jakarta.persistence.jdbc.user" value="goodee"/>
       <property name="jakarta.persistence.jdbc.password" value="goodee"/>
       
@@ -28,7 +28,7 @@
       <!--   - create      : 애플리케이션 시작 시 테이블 생성 (기존 테이블은 삭제 후 재생성) -->
       <!--   - create-drop : 애플리케이션 종료 시 테이블 삭제가 추가된 create 모드 -->
       <!--   - validate    : 엔티티와 테이블 스키마의 일치 여부만 검증 -->
-      <property name="hibernate.hbm2ddl.auto" value="create"/>
+      <property name="hibernate.hbm2ddl.auto" value="none"/>
     
     </properties>
   
