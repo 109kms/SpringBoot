@@ -1,5 +1,6 @@
 package org.shark.boot16;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
@@ -12,14 +13,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.shark.boot16.common.util.JpaUtil;
-import org.shark.boot16.product.entity.Contact;
 import org.shark.boot16.product.entity.Product;
-import org.shark.boot16.product.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -58,27 +56,42 @@ class ApplicationTests3 {
     jpaUtil.closeFactory();
   }
   
-  @Test
-  @DisplayName("내부 조인 테스트")
-  void innerJoinTest() {
-    String jpql = "SELECT p FROM Product p JOIN p.category c";
-    List<Product> products = em.createQuery(jpql, Product.class).getResultList();
-    products.stream().forEach(System.out::println);  // 메소드 참조
-  }
-  
-  @Test
-  @DisplayName("내부 조인(페치 조인) 테스트")
-  void fetchJoinTest() {
-    // 1. 1번 : 최초 내부 조인 쿼리문이 실행됩니다. 이 때는 Product 정보만 조회됩니다.
-    // 2. N번 : 각 Product 엔티티의 Category 필드를 조회할 때 별도의 쿼리문으로 Category 정보를 조회합니다.
-    
-    // N + 1 문제 해결
-    // 1. 최초 내부 조인 쿼리문이 실행될 때 Product, Category 모두 조회되도록 합니다.
-    // 2. JPQL에서 JOIN FETCH를 사용합니다.
-    String jpql = "SELECT p FROM Product p JOIN FETCH p.category c";
-    List<Product> products = em.createQuery(jpql, Product.class).getResultList();
-    products.stream().forEach(System.out::println);  // 메소드 참조
-  }
-  
-}
+	@Test
+	@DisplayName("내부 조인 테스트")
+	void innerJoinTest() {
+	  String jpql = "SELECT p FROM Product p JOIN p.category c";
+	  List<Product> products = em.createQuery(jpql, Product.class)
+	                             .getResultList();
+	  products.stream().forEach(product -> System.out.println(product));
+	  // products.stream().forEach(System.out::println);
+	}
+	
+	@Test
+	@DisplayName("내부 조인(페치 조인) 테스트")
+	void fetchJoinTest() {
+	  // N + 1 문제 (일반 내부 조인 실행 시 문제점)
+	  // 1. 1번 : 최초 내부 조인 쿼리문이 실행됩니다. 이 때는 Product 정보만 조회됩니다.
+	  // 2. N번 : 각 Product 엔티티의 Category 필드를 조회할 때 별도의 쿼리문으로 Category 정보를 조회합니다.
+	  
+	  // N + 1 문제 해결
+	  // 1. 최초 내부 조인 쿼리문이 실행될 때 Product, Category 모두 조회되도록 합니다.
+	  // 2. 그러기 위해서 JPQL에서 JOIN FETCH를 사용합니다.
+	  
+	  String jpql = "SELECT p FROM Product p JOIN FETCH p.category c";
+	  List<Product> products = em.createQuery(jpql, Product.class)
+	      .getResultList();
+	  products.stream().forEach(System.out::println);
+	  Assertions.assertTrue(em.contains(products));
+	}
+	
+	@Test
+	@DisplayName("외부 조인 테스트")
+	void outerJoinTest() {
+	  // 제품이 속하지 않은 카테고리도 함께 조회하기
+	  String jpql = "SELECT p.productName, c.categoryName FROM Product p RIGHT JOIN p.category c ORDER BY c.categoryId";
+	  List<Object[]> categories = em.createQuery(jpql, Object[].class).getResultList();
+	  categories.forEach(objArr -> System.out.println(Arrays.toString(objArr)));
+	  Assertions.assertTrue(em.contains(categories));  // 외부 조인 결과는 영속 컨텍스트에 저장되지 않습니다.
+	}
 
+}

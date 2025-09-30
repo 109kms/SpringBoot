@@ -48,11 +48,11 @@ public class User {
   @Column(name = "withdraw_yn", nullable = false)
   private Boolean withdrawYn = false;
   
-//  @OneToMany(mappedBy = "user")
-//  private List<Order> orders;
-//  
-//  @OneToMany(mappedBy = "user")
-//  private List<Payment> payments;
+  @OneToMany(mappedBy = "user")
+  private List<Order> orders;
+  
+  @OneToMany(mappedBy = "user")
+  private List<Payment> payments;
   
   protected User() {}
   
