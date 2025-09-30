@@ -2,6 +2,7 @@ package org.shark.boot17.product.dto;
 
 import java.time.LocalDateTime;
 
+import org.shark.boot17.product.entity.Category;
 import org.shark.boot17.product.entity.Product;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +27,20 @@ public class ProductDTO {
   private LocalDateTime registerDate;
   private Integer categoryId;
   private String categoryName;
+  
+  // DTO -> Entity
+  public Product toEntity(Category category) {  // 연관관계에 있는
+    Product p = new Product();
+    p.setProductId(productId);
+    p.setProductName(productName);
+    p.setProductPrice(productPrice);
+    p.setStockQuantity(stockQuantity);
+    p.setSaleStatusYn(saleStatusYn);
+    p.setProductDescription(productDescription);
+    p.setRegisterDate(LocalDateTime.now());
+    p.setCategory(category);
+    return p;
+  }
   
   // Entity -> DTO
   public static ProductDTO toDTO(Product product) {

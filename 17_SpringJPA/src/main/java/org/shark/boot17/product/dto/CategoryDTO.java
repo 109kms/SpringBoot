@@ -29,6 +29,20 @@ public class CategoryDTO {
     this.parentCategoryName = parentCategoryName;
   }
   
+  // DTO -> Entity (상위 카테고리가 있는 경우)
+  public Category toEntity(Category parent) {
+    Category c = new Category();
+    c.setCategoryId(categoryId);
+    c.setCategoryName(categoryName);
+    c.setParent(parent);
+    return c;
+  }
+  
+  // DTO -> Entity (상위 카테고리가 없는 경우)
+  public Category toEntity() {
+    return toEntity(null);
+  }
+  
   // Entity -> DTO
   public static CategoryDTO toDTO(Category entity) {
     CategoryDTO dto = new CategoryDTO();

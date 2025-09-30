@@ -49,7 +49,7 @@ public class Product {
   @JoinColumn(name = "category_id")
   private Category category;
   
-  protected Product() {}
+  public Product() {}
 
   public static Product createProduct(String productName, Integer productPrice, Integer stockQuantity,
                                       Boolean saleStatusYn, String productDescription, LocalDateTime registerDate,

@@ -41,7 +41,7 @@ public class Category {
   @OneToMany(mappedBy = "category")
   private List<Product> products;
   
-  protected Category() {}
+  public Category() {}
   
   public static Category createCategory(String categoryName, Category parent) {
     Category category = new Category();
