@@ -1,6 +1,8 @@
 package org.shark.boot17.product.repository;
 
 import org.shark.boot17.product.entity.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
@@ -44,5 +46,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-
+  
+  // 카테고리별 조회
+  Page<Product> findByCategoryCategoryId(Integer categoryId, Pageable pageable);
+  
 }
