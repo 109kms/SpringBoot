@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class OAuth2Controller {
 
   @GetMapping("/")
-  public void index() { }  // 반환이 void이면 메소드 이름이 뷰 이름입니다.
+  public String index() { return "index"; }
 
   @GetMapping("/login")
-  public void login() { }
+  public String login() { return "login"; }
 
   @GetMapping("/profile")
   public String profile(@AuthenticationPrincipal CustomOAuth2User customOAuth2User, Model model) {  // SecurityContext에 저장된 CustomOAuth2User 타입의 사용자 정보를 가져온 뒤, Model에 저장합니다.
